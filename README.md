@@ -4,6 +4,8 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
 ## Pre-requirement ##
 
+* [Python 2.7](https://www.python.org/downloads/)
+
 * [RNAplfold (version 1.7.2)](https://www.tbi.univie.ac.at/RNA/index.html)
 
     Sequence accessibility of transcripts can be predicted by RNAplfold in the ViennaRNA package.
@@ -28,7 +30,7 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
 * RNAplfold_result: Result of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
 
-## parameters ##
+## Parameters ##
 
 To run the code, you will need to specify the following parameters by modifying the following lines of `run2_new_RNAplfold_format.py`:
 
@@ -41,6 +43,13 @@ RNAplfold_direct = ''  # directory name of the RNAplfold results
 
 final_out_name = ''   # name of the final output
 detailed_final_out_name = ''   #name of the final output (the detailed version)
+```
+## Motif prediction ##
+
+To predict the *in vivo* RBP motif, simply run:
+
+```
+python run2_new_RNAplfold_format.py
 ```
 
 ## Related Publications ##

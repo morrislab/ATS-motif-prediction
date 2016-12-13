@@ -14,7 +14,7 @@ This motif discovery algorithm selects the final motif with most distinguished f
     RNAplfold -W 80 -L 40 -u 8  < seq_file_name  > /RNAplfold_direct /W80L40u8_whole.txt
     ```
 
-    The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the parameters’ setting.
+    The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the setting of parameters.
     
     For detailed information of running RNAplfold, Please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
 

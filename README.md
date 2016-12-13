@@ -10,16 +10,6 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
     Sequence accessibility of transcripts can be predicted by RNAplfold in the ViennaRNA package.
     
-    For example, assuming the length of the binding site is 8 nt:
-
-    ```
-    RNAplfold -W 80 -L 40 -u 8  < seq_file_name  > /RNAplfold_direct /W80L40u8_whole.txt
-    ```
-
-    The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the setting of parameters.
-    
-    For detailed information of running RNAplfold, Please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
-
 ## Input files ##
 
 * pos_file: A file that contains gene names in the positive set, one gene per line.
@@ -29,6 +19,17 @@ This motif discovery algorithm selects the final motif with most distinguished f
 * seq_file: A fasta file containing sequences of genes in positive and negative sets.
 
 * RNAplfold_result: Result of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
+
+    To get result from RNAplfold, assuming the length of the binding site is 8 nt:
+
+    ```
+    RNAplfold -W 80 -L 40 -u 8  < seq_file_name  > /RNAplfold_direct /W80L40u8_whole.txt
+    ```
+
+    The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the setting of parameters.
+    
+    For detailed information of running RNAplfold, Please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
+
 
 ## Parameters ##
 

@@ -12,13 +12,13 @@ This motif discovery algorithm selects the final motif with most distinguished f
     
 ## Input files ##
 
-* pos_file: A file that contains gene names in the positive set, one gene per line.
+* **pos_file**: A file that contains gene names in the positive set, one gene per line.
 
-* neg_file: A file that contains gene names in the negative set, one gene per line. 
+* **neg_file**: A file that contains gene names in the negative set, one gene per line. 
 
-* seq_file: A fasta file containing sequences of genes in positive and negative sets.
+* **seq_file**: A fasta file containing sequences of genes in positive and negative sets.
 
-* RNAplfold_result: Result of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
+* **RNAplfold_result**: Result of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
 
     To get result from RNAplfold, assuming the length of the binding site is 8 nt:
 

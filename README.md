@@ -6,16 +6,17 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
 * [RNAplfold (version 1.7.2)](https://www.tbi.univie.ac.at/RNA/index.html)
 
-Sequence accessibility of transcripts can be predicted by RNAplfold in the ViennaRNA package.
+    Sequence accessibility of transcripts can be predicted by RNAplfold in the ViennaRNA package.
     
-For example, assuming the length of the binding site is 8 nt:
+    For example, assuming the length of the binding site is 8 nt:
 
-```
-RNAplfold -W 80 -L 40 -u 8  < seq_file_name  > /RNAplfold_direct /W80L40u8_whole.txt
-```
-The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the parameters’ setting.
+    ```
+    RNAplfold -W 80 -L 40 -u 8  < seq_file_name  > /RNAplfold_direct /W80L40u8_whole.txt
+    ```
+
+    The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the parameters’ setting.
     
-For detailed information of running RNAplfold, Please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
+    For detailed information of running RNAplfold, Please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
 
 ## Input files ##
 

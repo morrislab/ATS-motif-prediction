@@ -2,7 +2,7 @@
 
 This motif discovery algorithm selects the final motif with most distinguished feature (total accessibility or site number) in bound (positive) and unbound (negative) transcripts. 
 
-## Pre-requirement ##
+## Pre-requirements ##
 
 * [Python 2.7](https://www.python.org/downloads/)
 

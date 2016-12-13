@@ -6,7 +6,7 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
 * [Python 2.7](https://www.python.org/downloads/)
 
-* [RNAplfold (version 1.7.2)](https://www.tbi.univie.ac.at/RNA/index.html)
+* [RNAplfold (version 2.1.8)](https://www.tbi.univie.ac.at/RNA/index.html)
 
     Sequence accessibility of transcripts can be predicted by RNAplfold in the ViennaRNA package.
     

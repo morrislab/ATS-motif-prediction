@@ -45,12 +45,13 @@ RNAplfold_direct = ''  # directory name of the RNAplfold results
 final_out_name = ''   # name of the final output
 detailed_final_out_name = ''   #name of the final output (the detailed version)
 ```
+
 ## Motif prediction ##
 
-To predict the *in vivo* RBP motif, simply run:
+To run the code, one need to run the following function in the `run2_new_RNAplfold_format.py`, 
 
 ```
-python run2_new_RNAplfold_format.py
+Motif_discovery(final_out_name, detailed_final_out_name, model, pos_file_name, neg_file_name, seq_file_name, RNAplfold_direct)   
 ```
 
 ## Related Publications ##

@@ -54,6 +54,6 @@ To run the code, one need to run the following function in the `run2_new_RNAplfo
 Motif_discovery(final_out_name, detailed_final_out_name, model, pos_file_name, neg_file_name, seq_file_name, RNAplfold_direct)   
 ```
 
-## Related Publications ##
+## Related Publication ##
 
 X. Li, G. Quon, H.D. Lipshitz, Q.D. Morris, **Predicting in vivo binding sites of RNA-binding proteins using mRNA secondary structure**, *RNA* 16.6 (2010): 1096–1107. [[Pubmed]](https://www.ncbi.nlm.nih.gov/pubmed/20418358) [[Supplementary materials]](http://rnajournal.cshlp.org/content/16/6/1096/suppl/DC1)

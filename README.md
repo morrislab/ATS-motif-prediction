@@ -28,7 +28,7 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
     The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the setting of parameters.
     
-    For detailed information of running RNAplfold, Please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
+    For detailed information of running RNAplfold, please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
 
 
 ## Parameters ##

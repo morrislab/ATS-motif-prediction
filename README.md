@@ -16,7 +16,7 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
 * **neg_file**: A file that contains gene names in the negative set, one gene per line.
 
-* **seq_file**: A fasta file containing sequences of genes in positive and negative sets (in the __RNA alphabet__).
+* **seq_file**: A fasta file containing sequences of transcripts in positive and negative sets (in the __RNA alphabet__).
 
 * **RNAplfold_direct**: A folder containing the `<ID>_lunp` files of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
 

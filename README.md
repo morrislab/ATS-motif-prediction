@@ -8,26 +8,26 @@ This motif discovery algorithm selects the final motif with most distinguished f
 
 * [RNAplfold (version 2.1.8)](https://www.tbi.univie.ac.at/RNA/index.html)
 
-    Sequence accessibility of transcripts can be predicted by RNAplfold in the ViennaRNA package.
-    
+    Sequence accessibility of transcripts is predicted by the RNAplfold tool in the ViennaRNA package.
+
 ## Input files ##
 
 * **pos_file**: A file that contains gene names in the positive set, one gene per line.
 
-* **neg_file**: A file that contains gene names in the negative set, one gene per line. 
+* **neg_file**: A file that contains gene names in the negative set, one gene per line.
 
-* **seq_file**: A fasta file containing sequences of genes in positive and negative sets.
+* **seq_file**: A fasta file containing sequences of genes in positive and negative sets (in the __RNA alphabet__).
 
-* **RNAplfold_result**: Result of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
+* **RNAplfold_direct**: A folder containing the `<ID>_lunp` files of RNAplfold output of genes in positive and negative sets. Make sure gene names in this file are consistent with those in pos_file and neg_file.
 
-    To get result from RNAplfold, assuming the length of the binding site is 8 nt:
+    To get result from RNAplfold, assuming the length of the binding site is at most 10 nt:
 
     ```
-    RNAplfold -W 80 -L 40 -u 8  < seq_file_name  > /RNAplfold_direct /W80L40u8_whole.txt
+    RNAplfold -W 80 -L 40 -u 10  < seq_file_name
     ```
 
-    The setting of parameters W, L, u can be changed upon different situation, but please make sure the output file name is also changed to reflect the setting of parameters.
-    
+    The setting of parameters W, L, u can be changed upon different situation.
+
     For detailed information of running RNAplfold, please refer to [https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html](https://www.tbi.univie.ac.at/RNA/RNAplfold.1.html).
 
 
@@ -42,8 +42,8 @@ neg_file_name = ''   # name of neg_file
 seq_file_name = ''   # name of seq_file
 RNAplfold_direct = ''  # directory name of the RNAplfold results
 
-final_out_name = ''   # name of the final output
-detailed_final_out_name = ''   #name of the final output (the detailed version)
+final_out_name = ''   # name of the final output (only the best motif)
+detailed_final_out_name = ''   #name of the detailed output (motifs from all five seed 6mers)
 ```
 
 ## Motif prediction ##

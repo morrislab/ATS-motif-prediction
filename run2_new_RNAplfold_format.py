@@ -1045,19 +1045,15 @@ def TS_with_zero(con, pos_file_name,neg_file_name, seq_file_name, RNAplfold_dire
 
 if __name__ == '__main__':
 
-    final_out_name = ''
-    detailed_final_out_name = ''
     model = 'access_seq'
+    # pos_file_name, neg_file_name: file names of the positive and negative files. Make sure each line has one gene name, also make sure it is consitent in the RNAplfold result
     pos_file_name = ''
     neg_file_name = ''
-    RNAplfold_direct = ''
     seq_file_name = ''
+    RNAplfold_direct = ''       # RNAplfold_direct: directory name of the RNAplfold results
 
-    # model = 'access_seq'
-    # final_out_name: name of the final output
-    # detailed_final_out_name: name of the final output (the detailed version)
-    # pos_file_name, neg_file_name: file names of the positive and negative files. Make sure each line has one gene name, also make sure it is consitent in the RNAplfold result
-    # RNAplfold_direct: directory name of the RNAplfold results
+    final_out_name = '' # final_out_name: name of the final output
+    detailed_final_out_name = ''    # detailed_final_out_name: name of the final output (the detailed version)
 
     Motif_discovery(final_out_name, detailed_final_out_name, model, pos_file_name, neg_file_name, seq_file_name, RNAplfold_direct)
 

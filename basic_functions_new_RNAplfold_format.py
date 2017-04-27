@@ -70,7 +70,6 @@ def poss_to_degernate_motif(poss):
         motif_str = motif_str + number_to_str[tran_num]
     return motif_str
 
-
 def required_motif(poss):
     
     '''input = ['U','ACU'], output = ['UU','UA','UC']'''

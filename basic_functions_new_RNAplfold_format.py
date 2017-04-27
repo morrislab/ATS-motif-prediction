@@ -2,8 +2,8 @@ import random
 import numpy
 import scipy.stats
 
-#no N shifting adding on right/left
-#Considering shorter motif (compared to the input canadiates)
+# no N shifting adding on right/left
+# Considering shorter motif (compared to the input canadiates)
 
 def consensus_to_motifs(consensus):
     '''input = 'UGUH', output = ['U','G','U','ACU']'''
@@ -29,6 +29,7 @@ def consensus_to_motifs(consensus):
         motif.append(seq_dic[nt])
     return motif
 
+
 def trans_str_to_number(ACGU_str):
     
     result_number = 0
@@ -42,6 +43,7 @@ def trans_str_to_number(ACGU_str):
         elif ACGU_str[i] == 'U':
             result_number = result_number + pow(4,4)
     return result_number
+
 
 def poss_to_degernate_motif(poss):
     
@@ -70,6 +72,7 @@ def poss_to_degernate_motif(poss):
         motif_str = motif_str + number_to_str[tran_num]
     return motif_str
 
+
 def required_motif(poss):
     
     '''input = ['U','ACU'], output = ['UU','UA','UC']'''
@@ -85,6 +88,7 @@ def required_motif(poss):
         if motifs.count(motif) == 0:
             motifs.append(motif)
     return motifs
+
 
 def more_degenerate_nt(input_nt):
     
@@ -102,6 +106,7 @@ def more_degenerate_nt(input_nt):
             
     return result
 
+
 def more_degenerate_poss(input_poss):
     
     result = []
@@ -116,7 +121,8 @@ def more_degenerate_poss(input_poss):
             result.append(temp)
             #print temp
     return result
-    
+
+
 def shift(input_motif_poss, leftORright):
     
     result = []
@@ -148,16 +154,16 @@ def shift_less(input_motif_poss, leftORright):
     all_nt = ['ACU', 'AU', 'ACGU', 'AC', 'UC', 'GU', \
               'CGU', 'AGU', 'GA', 'ACG', 'GC', 'A','C','G','U']
     if leftORright == 'Left':
-	result.append(input_motif_poss[1:])
-        
-       
+        result.append(input_motif_poss[1:])
+
     elif leftORright == 'Right':
         result.append(input_motif_poss[:-1])
             
     else:
         print 'Wrong shift instruction!'
     return result
-    
+
+
 def loc_whole_region(motifs, seq_file_name):
     seq_file = open(seq_file_name,'r')
     seq = seq_file.readlines()
@@ -176,7 +182,7 @@ def loc_whole_region(motifs, seq_file_name):
                 start = 0
                 current = 0
                 i = 0
-		for iii in range(line.count(motif)):
+                for iii in range(line.count(motif)):
                 #while line.find(motif, start) != -1:
                     current = line.index(motif, start)
                     loc.append(current)
@@ -187,6 +193,7 @@ def loc_whole_region(motifs, seq_file_name):
             for item in loc:
                 loc_dic[name].append(item)
     return loc_dic
+
 
 def utr3_loc_to_whole_transcript_loc(utr3_loc, whole_seq_file, utr3_seq_file):
 
@@ -223,7 +230,7 @@ def utr3_loc_to_whole_transcript_loc(utr3_loc, whole_seq_file, utr3_seq_file):
     return on_whole_loc
                                                                 
 
-#take from previous codes
+# taken from previous codes
 
 def loc_in_utr_orf(motifs, seq_file_name, loc_file_name):
     
@@ -234,6 +241,7 @@ def loc_in_utr_orf(motifs, seq_file_name, loc_file_name):
     as 5'UTR, ORF or 3'UTR. The thing need to keep in mind is that this 
     transcripts sequence for yeast is composed of 200nt 5'UTR, ORF and 200nt 
     3'UTRs'''
+
     '''Again, there is an option that not write the result into file, just use
     '' to replace loc_file_name'''
     
@@ -285,9 +293,8 @@ def loc_in_utr_orf(motifs, seq_file_name, loc_file_name):
     
         loc_file.close()
     return loc_dic
-                                      
-                    
-            
+
+
 def loc_in_utr_orf_region(motifs, seq_file_name,  utrORorf):
      
      '''same as the last function except output file will focus on the region users 
@@ -322,7 +329,8 @@ def loc_in_utr_orf_region(motifs, seq_file_name,  utrORorf):
          print 'Wrong input of utrORorf!'
              
      return result
-             
+
+
 def filtered_accessibility_old(RNAplfold_file, pos_list, neg_list):
 
     '''RNAplfold_file is the name of proper RNAplfold result, Basically, 
@@ -331,6 +339,7 @@ def filtered_accessibility_old(RNAplfold_file, pos_list, neg_list):
     #print pos
     #print type(pos)
     #print type([])
+
     if type(pos_list) != type([]):
         file_pos = open(pos_list, 'r')
         pos = file_pos.readlines() # there is '\n' at the end of each name
@@ -352,7 +361,7 @@ def filtered_accessibility_old(RNAplfold_file, pos_list, neg_list):
     exist = 'No'
     for line in RNAplfold:
         if line.startswith('>'):
-	    
+            
             name = line[1:-1]
             if pos.count(name + '\n') > 0:
                 exist = 'pos'
@@ -370,7 +379,8 @@ def filtered_accessibility_old(RNAplfold_file, pos_list, neg_list):
             elif exist == 'neg':
                 temp = line.split()
                 neg_access[name.strip()].append(float(temp[1]))
-    filtered_access =  [pos_access, neg_access, len(pos), len(neg)]
+    filtered_access = [pos_access, neg_access, len(pos), len(neg)]
+
     return filtered_access
 
 
@@ -393,12 +403,12 @@ def filtered_accessibility(RNAplfold_dir, pos_list, neg_list, mer_length):
     #pos_overlap_list = set(pos) 
     pos_access = {}
     for pos_gene in pos:
-	pos_gene = pos_gene.strip()
-    	#RNAplfold_result = open(RNAplfold_file, 'r')
-    	access_list = []
-	try:
+        pos_gene = pos_gene.strip()
+        # RNAplfold_result = open(RNAplfold_file, 'r')
+        access_list = []
+        try:
             acc_file_in = open(RNAplfold_dir + pos_gene + '_lunp', 'r')
-	except:
+        except:
             print pos_gene + ' does not exist!'
             continue
 
@@ -413,22 +423,22 @@ def filtered_accessibility(RNAplfold_dir, pos_list, neg_list, mer_length):
                         acc = float(acc_s)
                         access_list.append(acc)
                 else:
-		    print 'longer k mer from RNAplfold settting is required!! Error here!!'
+                    print 'longer k mer from RNAplfold settting is required!! Error here!!'
                     access_list = ['NA']
-	pos_access[pos_gene] = access_list
+        pos_access[pos_gene] = access_list
 
     neg_access = {}
     for neg_gene in neg:
         neg_gene = neg_gene.strip()
         #RNAplfold_result = open(RNAplfold_file, 'r')
         access_list = []
-	try: 
+        try: 
             acc_file_in = open(RNAplfold_dir + neg_gene +'_lunp', 'r')
         except:
-	    print neg_gene + ' does not exist!'
+            print neg_gene + ' does not exist!'
             continue
 
-	for line in acc_file_in:
+        for line in acc_file_in:
             if line.count('#')==0:
                 line = line.strip()
                 temp = line.split('\t')
@@ -444,10 +454,13 @@ def filtered_accessibility(RNAplfold_dir, pos_list, neg_list, mer_length):
         neg_access[neg_gene] = access_list
 
     filtered_access =  [pos_access, neg_access, len(pos), len(neg)]
+    # if 'FBtr0335497' in filtered_access[0].keys():
+    #     print('Filtered access FBtr0335497:', len(filtered_access[0]['FBtr0335497']))
+        # print(filtered_access[0]['FBtr0335497'])
+
     return filtered_access
 
 
-   
 def sum_region_accessibility_site(filtered_access, loc_dic):
 
     '''filtered_access is the result of filtered_accessibility. loc_dic is the                                                                                                                                                                     
@@ -461,17 +474,13 @@ def sum_region_accessibility_site(filtered_access, loc_dic):
         num = 0
         if loc_dic.has_key(gene) and len(loc_dic[gene]) > 0:
             for loc in loc_dic[gene]:
+                # print(gene, loc, len(loc_dic[gene]), len(filtered_access[gene]))
                 sum = sum + filtered_access[gene][loc]
                 num = num + 1
             gene_access[gene] = sum
             gene_sites[gene] = num
 
-
-
     return [gene_access, gene_sites]
-
-
-
 
 
 def sum_region_accessibility(filtered_access, loc_dic):
@@ -486,6 +495,7 @@ def sum_region_accessibility(filtered_access, loc_dic):
         num = 0
         if loc_dic.has_key(gene) and len(loc_dic[gene]) > 0:
             for loc in loc_dic[gene]:
+                # print(gene, loc, len(filtered_access[0][gene]))
                 sum = sum + filtered_access[0][gene][loc]
                 num = num + 1
             pos_access[gene] = sum
@@ -504,10 +514,8 @@ def sum_region_accessibility(filtered_access, loc_dic):
     return [pos_access, neg_access, len(pos_gene_pool), len(neg_gene_pool)]
 
 
-
 def sum_site_num(filtered_access, loc_dic):
-    
-     
+
     pos_site_num = {}
     pos_gene_pool = filtered_access[0].keys()
     for gene in pos_gene_pool:
@@ -529,46 +537,44 @@ def sum_site_num(filtered_access, loc_dic):
     return [pos_site_num, neg_site_num, len(pos_gene_pool), len(neg_gene_pool)]
 
 
-
 def AUC(x, y):
         
-        """Calculates the AUC, rank sums statistic on the provided scores and
-        returns the result.
-        x --> positives
-
-        y --> negatives
-
-
-        Returns: AUC, z-statistic, two-tailed p-value, 
-        """
-        x,y = map(numpy.asarray, (x, y))
-        n1 = len(x)
-        n2 = len(y)
-        alldata = numpy.concatenate((x,y))
-        ranked = scipy.stats.rankdata(alldata)
-        x = ranked[:n1]
-        y = ranked[n1:]
-        s = numpy.sum(x,axis=0) # sum of positive ranks
-
-        #AUC = 1 - s/(n1*n2) + (n1+1)/float(2*n2) 
-        if n1*n2 != 0:
-            AUC = s/(n1*n2) - (n1+1)/float(2*n2) # AUC
-        else:
-            AUC = 'NaN'
-        expected = n1*(n1+n2+1) / 2.0
-	
-	#z = (s - expected)/numpy.sqrt(n1*n2*(n1+n2+1)/12.0)
-	'''modification starts'''
-        z = (s - expected) / numpy.sqrt(n1*n2*(n1+n2+1)/12.0) # Zscore
-	T = scipy.stats.tiecorrect(ranked)
-	if T== 0:
-	    #raise ValueError, 'All numbers are identical in ranksums'
-	    prob = 'tie'
-	z/= numpy.sqrt(T)
-	'''modification ends'''
+    """Calculates the AUC, rank sums statistic on the provided scores and
+    returns the result.
+    x --> positives
     
-	
-       # prob = 2*(1.0 - scipy.stats.zprob(abs(z))) # ranksum p value
-        #prob = 2*(min(scipy.stats.zprob(z),scipy.stats.zprob(-z)))
-        prob = 2*(min(scipy.stats.stats.special.ndtr(z), scipy.stats.stats.special.ndtr(-z)))
-        return [AUC, prob, n1, n2] 
+    y --> negatives
+    
+    
+    Returns: AUC, z-statistic, two-tailed p-value, 
+    """
+    x,y = map(numpy.asarray, (x, y))
+    n1 = len(x)
+    n2 = len(y)
+    alldata = numpy.concatenate((x,y))
+    ranked = scipy.stats.rankdata(alldata)
+    x = ranked[:n1]
+    y = ranked[n1:]
+    s = numpy.sum(x,axis=0) # sum of positive ranks
+
+    # AUC = 1 - s/(n1*n2) + (n1+1)/float(2*n2)
+    if n1*n2 != 0:
+        AUC = s/(n1*n2) - (n1+1)/float(2*n2) # AUC
+    else:
+        AUC = 'NaN'
+    expected = n1*(n1+n2+1) / 2.0
+
+    # z = (s - expected)/numpy.sqrt(n1*n2*(n1+n2+1)/12.0)
+    '''modification starts'''
+    z = (s - expected) / numpy.sqrt(n1*n2*(n1+n2+1)/12.0) # Zscore
+    T = scipy.stats.tiecorrect(ranked)
+    if T == 0:
+        # raise ValueError, 'All numbers are identical in ranksums'
+        prob = 'tie'
+    z /= numpy.sqrt(T)
+    '''modification ends'''
+
+    # prob = 2*(1.0 - scipy.stats.zprob(abs(z))) # ranksum p value
+    # prob = 2*(min(scipy.stats.zprob(z),scipy.stats.zprob(-z)))
+    prob = 2*(min(scipy.stats.stats.special.ndtr(z), scipy.stats.stats.special.ndtr(-z)))
+    return [AUC, prob, n1, n2]

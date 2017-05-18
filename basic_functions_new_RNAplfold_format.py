@@ -1,7 +1,7 @@
 import random
 import numpy
 import scipy.stats
-import itertools
+import itertools  # knie: added for required_motifs()
 
 
 # no N shifting adding on right/left
@@ -94,7 +94,7 @@ def poss_to_degernate_motif(poss):
 
 def required_motif(poss):
 
-    # modified 2017/05 for faster calculation, imported itertools module
+    # knie: modified 2017/05 for faster calculation, imported itertools module
 
     '''input = ['U','ACU'], output = ['UU','UA','UC']'''
     poss = [p.strip() for p in poss if p.strip()]

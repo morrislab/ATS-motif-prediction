@@ -1,6 +1,8 @@
 import random
 import numpy
 import scipy.stats
+import itertools
+
 
 # no N shifting adding on right/left
 # Considering shorter motif (compared to the input canadiates)
@@ -73,20 +75,34 @@ def poss_to_degernate_motif(poss):
     return motif_str
 
 
+# def required_motif(poss):
+#
+#     '''input = ['U','ACU'], output = ['UU','UA','UC']'''
+#     motifs = []
+#     motif = ''
+#     poss_num = 1
+#     for item in poss:
+#         poss_num = len(item) * poss_num
+#     while len(motifs) < poss_num:
+#         motif = ''
+#         for i in range(len(poss)):
+#             motif = motif + random.choice(poss[i])
+#         if motifs.count(motif) == 0:
+#             motifs.append(motif)
+#     return motifs
+
+
 def required_motif(poss):
-    
+
+    # modified 2017/05 for faster calculation, imported itertools module
+
     '''input = ['U','ACU'], output = ['UU','UA','UC']'''
+    poss = [p.strip() for p in poss if p.strip()]
     motifs = []
-    motif = ''
-    poss_num = 1
-    for item in poss:
-        poss_num = len(item) * poss_num 
-    while len(motifs) < poss_num:
-        motif = ''
-        for i in range(len(poss)):
-            motif = motif + random.choice(poss[i])
-        if motifs.count(motif) == 0:
-            motifs.append(motif)
+    if poss:
+        motifs = [nt for nt in poss[0]]
+        for p in poss[1:]:
+            motifs = [''.join(i) for i in itertools.product(motifs, p)]
     return motifs
 
 
